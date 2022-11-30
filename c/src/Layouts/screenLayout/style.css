@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-container {
+  width: 100%;
+  padding: 0rem 4rem;
+}
+.position-head {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  padding: 1rem 0;
+  background-color: white;
+  border-bottom: 1px solid gray;
+}
+
+@media only screen and (max-width: 500px) {
+  .main-container {
+    padding: 0rem 1rem;
+  }
+}

@@ -1,0 +1,79 @@
+/* Reset passwors */
+
+.container {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  line-height: 1.2;
+}
+h1 {
+  color: black;
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+h3 {
+  text-align: center;
+}
+.btn {
+  margin-top: 1rem;
+}
+p {
+  font-size: 1rem;
+  color: black;
+}
+.error {
+  font-size: 1rem;
+  color: #FC8080;
+}
+.response-error {
+  font-size: 1rem;
+  color: red;
+  text-align: center;
+}
+.response-success {
+  font-size: 1rem;
+  color:green;
+  text-align: center;
+}
+.content {
+  height: 90vh;
+  width: 30%;
+  margin-top: -3rem;
+  background-color: white;
+  padding: 2rem;
+}
+.reset input {
+  border: none;
+  background: none;
+  border-bottom: 2px solid lightgrey;
+  color: lightgrey;
+  border-radius: 0;
+}
+span {
+  display: inline-block;
+  margin-top: 0;
+}
+
+.res-error {
+  font-size: 1.5rem;
+  /* background-color:#FBF8F1; */
+  color: red;
+  padding: 8px 16px;
+  /* text-align: center; */
+}
+
+#submit_btn {
+  background-color: #926000;
+  width: 100%;
+}
+
+.Formheader {
+  text-align: center;
+}
+
+/* #FBF8F1 */
+
+/* New Password */

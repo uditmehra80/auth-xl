@@ -1,0 +1,76 @@
+.auth_container .nav {
+  display: flex;
+  justify-content: space-between;
+  height: 10vh;
+  padding: 0.8rem 3rem;
+  background-color: white;
+  font-size: 1rem;
+  align-items: center;
+  font-weight: 600;
+}
+.auth_container .logo {
+  /* font-size: 1.8rem; */
+  font-weight: 500;
+}
+.nav_right {
+  display: flex;
+}
+/* .auth_container .input {
+  max-width: 400px;
+} */
+.auth_container .col-md-6 {
+  max-width: 430px;
+}
+.auth_container form {
+  padding: 2rem 1.5rem;
+}
+
+.auth_container .btn {
+  width: 100% !important;
+  margin-top: 1.5rem !important;
+}
+
+.forgot_signup_div .link,
+.forgot_signup_div span {
+  font-size: 0.85rem;
+  margin-top: 0.1rem;
+  text-decoration: none;
+}
+.forgot_signup_div {
+  margin-top: 1rem;
+  margin-bottom: 0rem;
+}
+.forgot_signup_div p {
+  margin: 0;
+}
+.nav_btn:hover,
+.auth_container .logo:hover {
+  color: rgb(119, 110, 110);
+  cursor: pointer;
+}
+.auth_container .row {
+  flex-wrap: unset;
+}
+
+.auth_container .signup_btn {
+  margin-top: 0.5rem !important;
+}
+.auth_container .error {
+  font-size: 0.8rem;
+  color: rgb(215, 49, 20);
+}
+
+.auth_container .conatiner-card {
+  min-width: 450px;
+}
+.height-90vh {
+  min-height: 90vh;
+}
+@media only screen and (max-width: 550px) {
+  .auth_container .nav {
+    padding: 0.8rem;
+  }
+  .auth_container .conatiner-card {
+    min-width: 98%;
+  }
+}
