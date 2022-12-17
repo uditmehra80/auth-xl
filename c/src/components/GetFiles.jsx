@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 function GetFiles(loadData) {
   const [files, setFiles] = useState([]);
   const getdata = async () => {
-    const response = await fetch("http://localhost:3001/api/get-file");
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/get-file`);
     let data = await response.json();
     console.log(data.data[0]);
     setFiles(data.data);
@@ -26,7 +26,7 @@ function GetFiles(loadData) {
 
   async function deletePost(id) {
     console.log(id);
-    await fetch(`http://localhost:3001/api/delete-file/${id}`, {
+    await fetch(`${process.env.REACT_APP_API_URL}/api/delete-file/${id}`, {
       method: "DELETE",
     });
     getdata();

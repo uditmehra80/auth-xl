@@ -2,14 +2,17 @@
 
 # dependencies
 /node_modules
+.env
 /.pnp
 .pnp.js
 
 # testing
-/coverage
+
+
+env added local check
 
 # production
-/build
+# /build
 
 # misc
 .DS_Store

@@ -3,6 +3,7 @@ const { requireLogin } = require("../middleware/Authenticate");
 const router = express.Router();
 
 const {
+    seed,
     signup,
     login,
     forgotPassword,
@@ -12,6 +13,8 @@ const {
     reSendLink,
     update,
 } = require("../controllers/auth.controller");
+
+router.get("/user/seed", seed);
 
 router.post("/users/signup", signup);
 
@@ -23,7 +26,7 @@ router.post("/forgot-password", forgotPassword);
 
 router.post("/new-password", resetPassword);
 
-router.get("/users/userId", requireLogin, userId);
+router.get("/users/userId", userId);
 
 router.post("/emailverify", activateAccount);
 

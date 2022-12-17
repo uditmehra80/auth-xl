@@ -2,18 +2,24 @@ const jwt = require("jsonwebtoken");
 const User = require("../model/userSchema");
 const JWT_SECRET = process.env.JWT_SECRET;
 
-exports.requireLogin = (req, res, next) => {
+exports.requireLogin = async (req, res, next) => {
   const { authorization } = req.headers;
   if (!authorization) {
-    return res.status(401).json({ error: "you must be logged in !" });
+    return res.status(401).json({ error: "please send authorization" });
   }
   try {
     const { userId } = jwt.verify(authorization, "abcdefghijklmnop");
     req.user = userId;
-    // console.log(userId);
-    next();
+    const rootUser = await User.exists({ _id: userId });
+    console.log(rootUser);
+    if (rootUser) {
+      next();
+    } else {
+      return res.status(401).json({ error: "user or token not valid please login again" });
+    }
   } catch (err) {
-    return res.status(401).json({ error: "you must be logged in" });
+    // console.log(err)
+    return res.status(401).json({ error: "you must be logged in", err });
   }
 };
 

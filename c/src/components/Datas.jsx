@@ -20,7 +20,7 @@ function Datas(props) {
 
   const getDataTable = async () => {
     setLoading(true);
-    const response = await fetch(`http://localhost:3001/api/get-datas/${id}`);
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/get-datas/${id}`);
     let data = await response.json();
     setDatas(data.data);
     setLoading(false);

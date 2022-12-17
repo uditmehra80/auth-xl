@@ -8,6 +8,22 @@ require("dotenv").config();
 const JWT_SECRET = process.env.JWT_SECRET;
 const CLIENT_URL = process.env.CLIENT_URL;
 
+exports.seed = async (req, res) => {
+  await User.deleteMany({ email: 'dev@coffeetobusiness.com' });
+
+  const user = new User({
+    name: 'Dev Team',
+    email: 'dev@coffeetobusiness.com',
+    password: 'Ctb@2023',
+    verified: true,
+  });
+  await user.save();
+  return res.status(201).json({
+    status: 201,
+    message: "USER ADDED",
+  });
+};
+
 //signup for users
 
 exports.signup = async (req, res) => {
@@ -295,7 +311,7 @@ exports.resetPassword = (req, res) => {
 
 exports.userId = (req, res) => {
   const { email } = req.headers;
-  // console.log(req.headers);
+  console.log(email);
   User.findOne({ email: email }, function (err, user) {
     if (user) {
       res

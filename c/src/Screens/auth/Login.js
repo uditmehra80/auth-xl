@@ -90,7 +90,7 @@ const Login = () => {
       }),
     })
       .then((res) => {
-        console.log(res, "res")
+        // console.log(res, "res")
         res.json().then((res) => {
           setLoading(false);
           if (res.status === 401) {

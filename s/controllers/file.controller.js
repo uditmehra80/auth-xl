@@ -5,36 +5,47 @@ const Data = require("../model/dataSchema");
 
 
 exports.getFile = function (req, res) {
-    File.find(
-        {},
-        function (err, files) {
-            if (err) {
-                console.log(err);
-                res.status(500).json({
-                    status: 500,
-                    error: err,
-                });
-            } else {
-                res.status(200).json({
-                    status: 200,
-                    data: files,
-                });
+    try {
+
+        File.find(
+            {},
+            function (err, files) {
+                if (err) {
+                    console.log(err);
+                    res.status(500).json({
+                        status: 500,
+                        error: err,
+                    });
+                } else {
+                    res.status(200).json({
+                        status: 200,
+                        data: files,
+                    });
+                }
             }
-        }
-    );
+        );
+    } catch (err) {
+        res.send("error" + err);
+        console.log(err)
+    }
 };
 
 exports.uploadFile = async (request, response) => {
-    const DataObj = request.body;
+    try {
+        const DataObj = request.body;
 
-    // console.log(DataObj);
-    const result = await File(DataObj).save();
-    // ! Use try-catch for error handling
+        // console.log(DataObj);
+        const result = await File(DataObj).save();
+        // ! Use try-catch for error handling
 
-    response.send({
-        message: "posted new file",
-        result: result,
-    });
+        response.send({
+            message: "posted new file",
+            result: result,
+        });
+    } catch (err) {
+        res.send("error" + err);
+        console.log(err)
+    }
 };
 
 exports.deleteFile = async (req, res) => {

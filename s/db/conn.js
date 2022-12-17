@@ -6,13 +6,13 @@ const DB = process.env.MONGOURL;
 mongoose
   .connect(DB, {
     useNewUrlParser: true,
-    useCreateIndex: true,
+    // useCreateIndex: true,
     useUnifiedTopology: true,
-    useFindAndModify: false,
+    // useFindAndModify: false,
   })
   .then(() => {
     console.log("connection is sucessful");
   })
   .catch((err) => {
-    console.log("conncetion is failed");
+    console.log("Connection is failed => ", err);
   });

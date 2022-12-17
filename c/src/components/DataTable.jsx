@@ -16,7 +16,7 @@ function DataTable(props) {
 
   const getDataTable = async () => {
     const response = await fetch(
-      `http://localhost:3001/api/get-dataTable/${id}`
+      `${process.env.REACT_APP_API_URL}/api/get-dataTable/${id}`
     );
     let data = await response.json();
     console.log(data.data[0]);

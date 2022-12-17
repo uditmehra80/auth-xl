@@ -31,7 +31,7 @@ function App() {
       <BrowserRouter>
         <Routes>
 
-          <Route path="/signup" element={<Signup />} />
+          {/* <Route path="/signup" element={<Signup />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/email-activation/:token" element={<EmailActivation />} />
           <Route path="/reset" element={<ResetPassword />} />
@@ -63,6 +63,8 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
+      <span id="watermark">techcream.in@2023</span>
+
     </div>
   );
 }
