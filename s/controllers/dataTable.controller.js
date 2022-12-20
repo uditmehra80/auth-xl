@@ -65,6 +65,31 @@ exports.getDataTables = function (req, res) {
     }
 };
 
+exports.getAllDataTableTerm = async function (req, res) {
+    const { term } = req.query
+
+    try {
+        let datatables = [];
+        let table_Names = [];
+
+
+        if (!term) datatables = await DataTable.find({});
+        else datatables = await DataTable.find({ title: { $regex: term } });
+
+        datatables.map((data) => {
+            table_Names.push(data.title)
+        })
+
+        res.status(200).json({
+            status: 200,
+            table_Names,
+        });
+    } catch (err) {
+        res.send("error" + err)
+    }
+
+};
+
 exports.uploadDataTable = async (request, response) => {
     const DataObj = request.body;
 

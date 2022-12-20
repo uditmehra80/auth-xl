@@ -19,10 +19,10 @@ function DataTables({
   setErrorMsg,
   dataTables,
   setDataTables,
+  loading,
+  setLoading,
 }) {
   const dispatch = useDispatch();
-
-  const [loading, setLoading] = useState(false);
 
   const deferredValue = useDeferredValue(loadData);
 
@@ -30,7 +30,9 @@ function DataTables({
     // console.log("DataTable");
 
     setLoading(true);
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/get-dataTable`);
+    const response = await fetch(
+      `${process.env.REACT_APP_API_URL}/api/get-dataTable`
+    );
     let data = await response.json();
     setDataTables(data.data);
     setLoading(false);

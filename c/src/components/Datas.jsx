@@ -10,6 +10,7 @@ import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Progress from "./Progress";
+import format from "date-fns/format";
 
 function Datas(props) {
   let { id } = useParams();
@@ -20,7 +21,9 @@ function Datas(props) {
 
   const getDataTable = async () => {
     setLoading(true);
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/get-datas/${id}`);
+    const response = await fetch(
+      `${process.env.REACT_APP_API_URL}/api/get-datas/${id}`
+    );
     let data = await response.json();
     setDatas(data.data);
     setLoading(false);
@@ -60,7 +63,9 @@ function Datas(props) {
                   <TableCell component="th" scope="row">
                     {index + 1}
                   </TableCell>
-                  <TableCell align="left">{data.date}</TableCell>
+                  <TableCell align="left">
+                    {format(new Date(data.date), "dd-MM-yyyy")}
+                  </TableCell>
                   <TableCell align="left">{data.value}</TableCell>
                   {/* <TableCell align="right">
                     <Stack

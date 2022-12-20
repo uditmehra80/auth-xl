@@ -7,7 +7,8 @@ const dataSchema = new mongoose.Schema({
         required: true,
     },
     date: {
-        type: String,
+        type: Date,
+        default: null
     },
     value: {
         type: String,
@@ -18,5 +19,14 @@ const dataSchema = new mongoose.Schema({
 });
 
 const Event = mongoose.model("DATA", dataSchema, "data");
+
+dataSchema.pre('save', function (next) {
+    this.date = new Date();
+    next();
+});
+dataSchema.pre('update', function (next) {
+    this.date = new Date();
+    next();
+});
 
 module.exports = Event;

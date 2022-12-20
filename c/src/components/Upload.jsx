@@ -39,6 +39,7 @@ export default function Upload() {
   let file_id = "";
 
   const PostData = async (ArrWithId) => {
+    setLoading(true);
     await axios({
       url: `${process.env.REACT_APP_API_URL}/api/upload-data`,
       method: "POST",
@@ -68,6 +69,7 @@ export default function Upload() {
   };
 
   const PostTable = async ({ title, file_id, data }) => {
+    setLoading(true);
     const TableData = {
       title: title.toLowerCase().trim(),
       file_id,
@@ -112,6 +114,8 @@ export default function Upload() {
   };
 
   const PostFile = async ({ filename, description, referenceId }) => {
+    setLoading(true);
+
     const FileData = {
       filename,
       description,
@@ -272,18 +276,15 @@ export default function Upload() {
                   LoopStatus = false;
                   return false;
                 } else {
-                  setLoading(false);
-
-                  let date = format(new Date(data.date), "MM-dd-yyyy");
+                  let date = new Date(data.date);
                   let dateOneBefore = new Date(date);
                   let currentDate = new Date(
                     dateOneBefore.setDate(dateOneBefore.getDate() + 1)
                   );
-                  let dateFormat = format(new Date(currentDate), "MM-dd-yyyy");
 
                   arrayOfPerSheetData.push({
                     title: FieldName,
-                    date: dateFormat,
+                    date: currentDate,
                     value: data.value,
                   });
 

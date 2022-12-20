@@ -6,12 +6,15 @@ const {
     getAllDataTable,
     getDataTables,
     uploadDataTable,
+    getAllDataTableTerm,
     deleteDataTable
 } = require("../controllers/dataTable.controller");
 
 router.get("/get-dataTable", getAllDataTable);
 
 router.get("/get-dataTable/:id", getDataTables);
+
+router.get("/get-tables", getAllDataTableTerm);
 
 router.post("/upload-dataTable", requireLogin, uploadDataTable);
 
